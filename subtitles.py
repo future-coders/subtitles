@@ -22,19 +22,13 @@ with open('./pulp_fiction.srt', 'r', encoding="latin1") as file:
         if re.search(r"^- ", line):
             line = line.lstrip("- ")
 
-        # print(line)
-    	
         words = re.split(r"[\s\.\,\?\¿\!\"]+", line)
         words = filter(None, words)
         
-        # print(words)
-
         for word in words:
             word = word.lower()
 
             word_frequencies[word] += 1
-
-# print(word_frequencies)
 
 words_sorted_by_frequency = sorted(word_frequencies, key=word_frequencies.get, reverse=True)
 

@@ -11,7 +11,7 @@ import collections
 # http://stackoverflow.com/a/8010133
 # http://stackoverflow.com/a/5552623
 
-word_frequencies = collections.defaultdict(int)
+word_frequencies = collections.Counter()
 
 with open('./pulp_fiction.srt', 'r', encoding="latin1") as file:
     
@@ -28,10 +28,9 @@ with open('./pulp_fiction.srt', 'r', encoding="latin1") as file:
 
         words = re.split(r"[\s\.\,\?\¿\!\"]+", line)
         words = filter(None, words)
-        
-        for word in words:
-            word = word.lower()
-            word_frequencies[word] += 1
+        words = map((lambda w: w.lower()), words)
+
+        word_frequencies += collections.Counter(words)
 
 words_sorted_by_frequency = sorted(word_frequencies, key=word_frequencies.get, reverse=True)
 

@@ -31,7 +31,6 @@ with open('./pulp_fiction.srt', 'r', encoding="latin1") as file:
         
         for word in words:
             word = word.lower()
-
             word_frequencies[word] += 1
 
 words_sorted_by_frequency = sorted(word_frequencies, key=word_frequencies.get, reverse=True)

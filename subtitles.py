@@ -1,8 +1,10 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 
 #
 # subtitles.py
 #
+
+# -*- coding: utf-8 -*-
 
 import re
 import collections
